@@ -6,7 +6,6 @@
 
 Documentation: [https://teamclear.gitbook.io/project/](https://teamclear.gitbook.io/project/)
 
-설명 작성란
 
 ## Requirements
 
