@@ -4,7 +4,7 @@
 
 'Untitled' Blah blah.
 
-Complete documentation is available at  [https://teamclear.gitbook.io/project/docs/](https://teamclear.gitbook.io/project/docs/).
+Complete documentation is available at  [https://teamclear.gitbook.io/project/docs/SUMMARY](https://teamclear.gitbook.io/project/docs/SUMMARY).
 
 
 
