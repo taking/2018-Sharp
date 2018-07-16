@@ -17,7 +17,7 @@ import string  # random String 생성 모듈
 ########### Configuration ###########
 FFMPEG_BIN = "ffmpeg"
 ALLOWED_EXTENSIONS = set(['gif', 'png', 'jpg', 'jpeg', 'bmp', 'mp4', 'mkv', 'wmv'])
-IGNORED_FILES = set(['.DS_Store'])
+IGNORED_FILES = set(['.DS_Store', '.gitignore'])
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'TeamClear1234'
