@@ -6,12 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
-# 0.0.2 - 07-01-2018
+# 0.0.5 - 07-16-2018
 
 **Added**
 
-- Github Repository
-- Gitbook Document
+- Creating a web page using python flask
 
 # 0.0.1 - 06-30-2018
 

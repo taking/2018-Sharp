@@ -13,7 +13,14 @@ Getting `Untitled` installed and ready-to-go should only take a few minutes.
 Installing `Untitled` is easy and straightforward. Your system just needs to meet these two requirements:
 
 * Python v3.6 (v3.4.0 and above is recommended)
-* Windows, Linux, Unix, or Mac OS X
+* FFmpeg 3.4+ (recommended)
+* libjpeg (maybe image process.. not yet)
+* Linux, Unix, or Mac OS X
+
+
+##### Install with Github Releases
+
+- https://github.com/taking/TeamClear/releases
 
 ##### Install with Python
 
@@ -22,10 +29,3 @@ The best way to install `Untitled` is via **Python Package Index (PyPI)**. At th
 ```
 $ pip install Untitled (Not Yet)
 ```
-
-
-
-**Install with Github Releases**
-
-- https://github.com/taking/TeamClear/releases
-=======
