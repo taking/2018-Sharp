@@ -28,4 +28,6 @@
 
 
 
-Thanks for contributing!
+---
+
+### Thanks for contributing!
