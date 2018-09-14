@@ -1,6 +1,5 @@
-import os, sys, glob, re
+import os, sys, glob, re, argparse
 import numpy as np
-import argparse
 import tensorflow as tf
 
 from lib._psnr import psnr
@@ -17,12 +16,9 @@ result_path_dir = "_uploads/result/"
 
 
 def test_with_sess(epoch, ckpt_path, data_path, sess):
-  psnr_list = []
-  for i in range(2):
-    psnr_list.append([])
-  for i in range(3):
-    psnr_list[0].append([])
-    psnr_list[1].append([])
+  psnr_list = [] * 2
+  psnr_list[0] = [] * 3
+  psnr_list[1] = [] * 3
   saver.restore(sess, ckpt_path)
   file_list = (os.listdir(data_path)).sort()
   for i, item in enumerate(file_list):
@@ -54,7 +50,7 @@ def test_with_sess(epoch, ckpt_path, data_path, sess):
   print("OURS\nX2 : %f db \nX3 : %f db \nX4 : %f db \n" % (np.mean(psnr_list[0][0]), np.mean(psnr_list[0][1]), np.mean(psnr_list[0][2])))
 
 def vdsr_start():
-  model_list = sorted(glob.glob("./checkpoints/adam_epoch_*"))
+  model_list = sorted(glob.glob("./checkpoints/epoch_*"))
   model_list = [fn for fn in model_list if not os.path.basename(fn).endswith("meta")]
   model_list = [fn for fn in model_list if not os.path.basename(fn).endswith("index")]
   if os.path.exists(result_path_dir):
