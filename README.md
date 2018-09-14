@@ -1,6 +1,7 @@
 # Untitled
 
-![python version](https://img.shields.io/pypi/pyversions/icrawler.svg)
+![python version](https://img.shields.io/badge/python-3.x-blue.svg)
+![tensorflow version](https://img.shields.io/badge/tensorflow_gpu-1.8-blue.svg)
 
 'Untitled' Blah blah.
 
@@ -25,11 +26,10 @@ We're always happy to help out with your books or any other questions you might 
 
 ## Features
 
-- 
+-
 
-## Licensing
+## Reference
+Thesis - ["Accurate Image Super-Resolution Using Very Deep Convolutional Networks", CVPR 16'.](http://cv.snu.ac.kr/research/VDSR/VDSR_CVPR2016.pdf)
 
-'Untitled' is licensed under the '[License Name]' License, Version [Version Number]. See [LICENSE](LICENSE) for the full license text.
-
-
-
+Data - ["Train Data 1"](http://cv.snu.ac.kr/research/VDSR/train_data.zip),
+["Test Data2"](http://cv.snu.ac.kr/research/VDSR/test_data.zip)

@@ -14,6 +14,8 @@ Installing `Untitled` is easy and straightforward. Your system just needs to mee
 
 * Python v3.6 (v3.4.0 and above is recommended)
 * FFmpeg 3.4+ (recommended)
+  * https://evermeet.cx/ffmpeg/
+* FFprobe (recommended)
 * libjpeg (maybe image process.. not yet)
 * Linux, Unix, or Mac OS X
 

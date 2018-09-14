@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}File Uploader{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <h1>CNN을 활용한 Super Resolution</h1>
+    <br>
+    <br>
+    <form id="fileupload" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="row fileupload-buttonbar">
+            <div class="col-lg-7">
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <input type="file" name="file" multiple>
+                </span>
+                <span class="fileupload-process"></span>
+            </div>
+            <div class="col-lg-5 fileupload-progress fade">
+                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                </div>
+                <div class="progress-extended">&nbsp;</div>
+            </div>
+        </div>
+        <table role="presentation" class="table table-striped"><thead><tr><th>Thumb</th><th>Name</th><th>Size/Progress</th><th>Button</th></tr></thead><tbody class="files"></tbody></table>
+    </form>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Notes</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>업로드 가능한 파일 용량은 <strong>Unlimited MB</strong></li>
+                <li>업로드 가능한 파일 확장자는 (<strong>GIF, PNG, JPG, JPEG, BMP, MP4, MKV, WMV</strong>) 만 허용합니다.</li>
+                <li><strong>드래그 &amp; 드롭</strong>으로 파일을 업로드 할 수 있습니다.</li>
+                <li>프로젝트가 진행되는 저장소 주소는 <a href="https://github.com/taking/TeamClear"><strong>TeamClear Project</strong></a> 이며, <a href="https://teamclear.gitbook.io/project/docs"><strong>Documentation</strong></a> 에서 더 자세한 정보를 보실 수 있습니다.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% raw %}
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+										<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">
+                {% if (file.url) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                {% } else { %}
+                    <span>{%=file.name%}</span>
+                {% } %}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            {% if (file.url) { %}
+            <form action="/convert" method="get">
+                <a href="JavaScript:html5Lightbox.showLightbox(2, '{%=file.url%}', '{%=file.name%}', 1024, 576);" type="button" class="btn btn-primary html5lightbox">
+                    <i class="glyphicon glyphicon-facetime-video"></i>
+                    <span>PLAY</span>
+                </a>
+              <button name="filename" class="btn btn-primary" value="{%=file.name%}">
+                <i class="glyphicon glyphicon-facetime-video"></i>
+                <span>CONV</span>
+              </button>
+
+              <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                  <i class="glyphicon glyphicon-trash"></i>
+                  <span>Delete</span>
+              </button>
+            </form>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+{% endraw %}
+{% endblock %}
+
+{% block scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="static/js/vendor/jquery.ui.widget.js"></script>
+<script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<script src="static/js/jquery.iframe-transport.js"></script>
+<script src="static/js/jquery.fileupload.js"></script>
+<script src="static/js/jquery.fileupload-process.js"></script>
+<script src="static/js/jquery.fileupload-image.js"></script>
+<script src="static/js/jquery.fileupload-video.js"></script>
+<script src="static/js/jquery.fileupload-validate.js"></script>
+<script src="static/js/jquery.fileupload-ui.js"></script>
+<script src="static/js/main.js"></script>
+<script type="text/javascript" src="static/html5lightbox/html5lightbox.js"></script>
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="static/js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->
+{% endblock %}
