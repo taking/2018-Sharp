@@ -1,17 +1,10 @@
-# Untitled Documentation
+# `CNN을 활용한 Super Resolution` Documentation
 
-This document aims to be a comprehensive guide to Untitled tools.
+This document aims to be a comprehensive guide to 'CNN을 활용한 Super Resolution'.
 
-### What is `Untitled`?
+### What is `CNN을 활용한 Super Resolution`?
 
-`Untitled` is a 
-
-
-
-### Help and Support
-
-If you have problems with the Untitled, you can search for or open a discussion on [GitHub](https://github.com/taking/TeamClear).
-
+`CNN을 활용한 Super Resolution` is a 
 
 
 ### FAQ

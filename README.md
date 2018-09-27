@@ -15,12 +15,6 @@ Complete documentation is available at  [https://teamclear.gitbook.io/project/do
 
 To get started, check out [the installation instructions in the documentation](docs/setup.md).
 
-
-## Help and Support
-
-We're always happy to help out with your books or any other questions you might have. You can ask a question on [GitHub Issues](https://github.com/taking/TeamClear/issues).
-
-
 ## Reference
 Thesis - ["Accurate Image Super-Resolution Using Very Deep Convolutional Networks", CVPR 16'.](http://cv.snu.ac.kr/research/VDSR/VDSR_CVPR2016.pdf)
 

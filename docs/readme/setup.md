@@ -1,33 +1,43 @@
-# Setup and Installation of Untitled
+# Setup and Installation of `CNN을 활용한 Super Resolution`
 
-Getting `Untitled` installed and ready-to-go should only take a few minutes.
+Getting `CNN을 활용한 Super Resolution` installed and ready-to-go should only take a few minutes.
 
-### untitled.untitled.com
+### demo.teamclear.cf
 
-[untitled.untitled.com](https://#) is a quick and easy way to sharpen and improve video quality on the web.
+[demo site](https://demo.teamclear.cf) is a quick and easy way to sharpen and improve video quality on the web.
 
 ### Local Installation
 
 ##### Requirements
 
-Installing `Untitled` is easy and straightforward. Your system just needs to meet these two requirements:
+Installing `CNN을 활용한 Super Resolution` is easy and straightforward. Your system just needs to meet these two requirements:
 
 * Python v3.6 (v3.4.0 and above is recommended)
-* FFmpeg 3.4+ (recommended)
-  * https://evermeet.cx/ffmpeg/
-* FFprobe (recommended)
-* libjpeg (maybe image process.. not yet)
-* Linux, Unix, or Mac OS X
+* FFmpeg 3.4+, FFprobe
+  * https://evermeet.cx/ffmpeg/ (windows)
+* Windows, Linux, Unix, or Mac OS X
 
-
-##### Install with Github Releases
-
-- https://github.com/taking/TeamClear/releases
-
-##### Install with Python
-
-The best way to install `Untitled` is via **Python Package Index (PyPI)**. At the terminal prompt, simply run the following command to install `Untitled`:
+##### 1. Clone Repository
 
 ```
-$ pip install Untitled (Not Yet)
+git clone https://github.com/taking/TeamClear.git
+```
+##### 2. install requirement
+
+```
+pip install -r requirements.txt
+```
+##### 3. Execute
+
+```
+python TeamClear.py
+```
+
+
+### Install with Python
+
+The best way to install `CNNTeamclear` is via **Python Package Index (PyPI)**. At the terminal prompt, simply run the following command to install `CNNTeamclear`:
+
+```
+$ pip install CNNTeamclear (Not Yet)
 ```
