@@ -11,6 +11,10 @@ Complete documentation is available at
 ![PSNR](https://i.imgur.com/rFNKdxz.png)
 ![Data Set](https://i.imgur.com/mFJWKMF.png)
 
+### Performance
+![Benchmark Result](https://i.imgur.com/YfzScjg.png)
+![LR](https://i.imgur.com/CgyICT0.png)
+![Optimizer](https://i.imgur.com/1zJDa6g.png)
 
 ### Setup and Installation of `CNN을 활용한 Super Resolution`
 
