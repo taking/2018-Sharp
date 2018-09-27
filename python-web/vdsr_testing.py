@@ -11,19 +11,23 @@ from scipy.misc import imresize
 
 f_size = 96
 s_epoch = 27
-data_path = "_uploads/extracts/"
+
+DATA_PATH = "_uploads/extracts/"
 result_path_dir = "_uploads/result/"
+file_list = os.listdir(DATA_PATH)
+file_list.sort()
 
-
-def test_with_sess(epoch, ckpt_path, data_path, sess):
-  psnr_list = [] * 2
-  psnr_list[0] = [] * 3
-  psnr_list[1] = [] * 3
+def test_with_sess(epoch, ckpt_path, data_path,sess):
+  psnr_list = []
+  for i in range(2):
+    psnr_list.append([])
+  for i in range(3):
+    psnr_list[0].append([])
+    psnr_list[1].append([])
   saver.restore(sess, ckpt_path)
-  file_list = (os.listdir(data_path)).sort()
   for i, item in enumerate(file_list):
     file_name = os.path.splitext(item)
-    img_raw = imread(data_path+item)
+    img_raw = imread(DATA_PATH+item)
     width = img_raw.shape[1]
     height = img_raw.shape[0]
     if len(img_raw.shape) == 3:
@@ -35,21 +39,20 @@ def test_with_sess(epoch, ckpt_path, data_path, sess):
       im_gt_ycbcr = 0
       img_raw = img_raw/255.0
       is_gray = True
-    img_raw = cropping(img_raw, height, width).astype(np.float32)
-    for x in range(2,5): # scale X2, X3, X4
+    for x in range(2,5):#About scale X2, X3, X4
       im_gt_y = imresize(imresize(img_raw, 1/x, interp='bicubic', mode='F'), [img_raw.shape[0], img_raw.shape[1]], interp='bicubic', mode='F')
       result_y = sess.run([output_tensor], feed_dict={input_tensor: np.resize(im_gt_y, (1, im_gt_y.shape[0], im_gt_y.shape[1], 1)), keep_prob: 1.0})
 
-    result_y = np.resize(result_y, (im_gt_y.shape[0], im_gt_y.shape[1]))
-    result_y = result_y.clip(16/255, 235/255)
-    image = colorize(result_y, im_gt_ycbcr, is_gray)
-    image.save(result_path_dir+file_name[0]+"X"+str(x)+file_name[1])
+      result_y = np.resize(result_y, (im_gt_y.shape[0], im_gt_y.shape[1]))
+      result_y = result_y.clip(16/255, 235/255)
+      image = colorize(result_y, im_gt_ycbcr, is_gray)
+      image.save(result_path_dir+file_name[0]+"X"+str(x)+file_name[1])
 
-    psnr_list[0][x - 2].append(psnr(result_y, img_raw, x))
-    psnr_list[1][x - 2].append(psnr(im_gt_y, img_raw, x))
-  print("OURS\nX2 : %f db \nX3 : %f db \nX4 : %f db \n" % (np.mean(psnr_list[0][0]), np.mean(psnr_list[0][1]), np.mean(psnr_list[0][2])))
+      psnr_list[0][x - 2].append(psnr(result_y, img_raw, x))
+      psnr_list[1][x - 2].append(psnr(im_gt_y, img_raw, x))
+  print("VDSR Success")
 
-def vdsr_start():
+if __name__ == '__main__':
   model_list = sorted(glob.glob("./checkpoints/epoch_*"))
   model_list = [fn for fn in model_list if not os.path.basename(fn).endswith("meta")]
   model_list = [fn for fn in model_list if not os.path.basename(fn).endswith("index")]
@@ -72,4 +75,4 @@ def vdsr_start():
       epoch = int(model_ckpt.split('epoch_')[-1].split('(')[0])
       if epoch == s_epoch:
         print("Testing ", model_ckpt)
-        test_with_sess(epoch, model_ckpt, data_path, sess)
+        test_with_sess(epoch, model_ckpt, DATA_PATH,sess)
