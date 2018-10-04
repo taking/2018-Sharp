@@ -21,7 +21,7 @@ Complete documentation is available at
 
 ![Before_1](https://i.imgur.com/1gwz49y.png)
 
-![After_2](https://i.imgur.com/hhXjl5o.png)
+![After_2](https://i.imgur.com/pA2VCqK.png)
 
 ![Before_2](https://i.imgur.com/hhXjl5o.png)
 
