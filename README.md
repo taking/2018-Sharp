@@ -6,15 +6,26 @@
 Complete documentation is available at
 [2018 졸업과제 최종 보고서 - 선명하조.pdf](https://docs.google.com/gview?url=https://cl.ly/4892df/download/%EC%A1%B8%EC%97%85%EA%B3%BC%EC%A0%9C%20%EC%B5%9C%EC%A2%85%20%EB%B3%B4%EA%B3%A0%EC%84%9C%20-%20%EC%84%A0%EB%AA%85%ED%95%98%EC%A1%B0_.pdf&embedded=true)
 
+[시연 영상 (Youtube)](https://youtu.be/62hgAvL6koc)
+
+
 
 ![webpage image](https://i.imgur.com/T1u4bIQ.png)
 ![PSNR](https://i.imgur.com/rFNKdxz.png)
-![Data Set](https://i.imgur.com/mFJWKMF.png)
+![Data Set](https://i.imgur.com/xEwAZ4S.png)
 
 ### Performance
 ![Benchmark Result](https://i.imgur.com/YfzScjg.png)
 ![LR](https://i.imgur.com/CgyICT0.png)
 ![Optimizer](https://i.imgur.com/1zJDa6g.png)
+
+![Before_1](https://i.imgur.com/1gwz49y.png)
+
+![After_2](https://i.imgur.com/hhXjl5o.png)
+
+![Before_2](https://i.imgur.com/hhXjl5o.png)
+
+![After_2](https://i.imgur.com/0i7Yptw.png)
 
 ### Setup and Installation of `CNN을 활용한 Super Resolution`
 
