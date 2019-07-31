@@ -68,7 +68,7 @@ pip install -r requirements.txt
 ##### 3. Execute
 
 ```
-python TeamClear.py
+python3 TeamClear.py
 ```
 
 
