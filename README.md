@@ -63,7 +63,7 @@ git clone https://github.com/taking/TeamClear.git
 cd python-web
 ```
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 ##### 3. Execute
 
